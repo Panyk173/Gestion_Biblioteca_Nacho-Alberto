@@ -18,18 +18,18 @@ public class Main {
             GestionUsuario gestionUsuario = new GestionUsuario(connection);
             GestionPrestamo gestionPrestamo = new GestionPrestamo(connection);
 
-            // Creamos un menú para que el usuario elija una opción
+            // Creamos un menú
             Scanner scanner = new Scanner(System.in);
             int opcion;
 
             do {
-                System.out.println("=== Gestión de Biblioteca ===");
+                System.out.println(" Gestion de Biblioteca");
                 System.out.println("1. Gestionar Libros");
                 System.out.println("2. Gestionar Autores");
                 System.out.println("3. Gestionar Usuarios");
-                System.out.println("4. Gestionar Préstamos");
+                System.out.println("4. Gestionar Prestamos");
                 System.out.println("0. Salir");
-                System.out.print("Elige una opción: ");
+                System.out.print("Elige una opciion: ");
                 opcion = scanner.nextInt();
                 scanner.nextLine(); // Limpiamos el buffer
 
@@ -47,10 +47,10 @@ public class Main {
                         gestionarPrestamos(gestionPrestamo, gestionUsuario, gestionLibro, scanner);
                         break;
                     case 0:
-                        System.out.println("Saliendo...");
+                        System.out.println("salir");
                         break;
                     default:
-                        System.out.println("Opción no válida.");
+                        System.out.println("Opción no valida.");
                 }
             } while (opcion != 0);
 
@@ -62,9 +62,9 @@ public class Main {
         }
     }
 
-    // Metodos para gestionar cada entidad
+    //  gestionar cada entidad
     private static void gestionarLibros(GestionLibro gestionLibro, Scanner scanner) {
-        System.out.println("=== Gestión de Libros ===");
+        System.out.println("=== Gestion de Libros ===");
         // Aquí se podría implementar más lógica para el CRUD de libros
         List<Libro> libros = gestionLibro.listarLibros();
         for (Libro libro : libros) {
@@ -73,8 +73,8 @@ public class Main {
     }
 
     private static void gestionarAutores(GestionAutor gestionAutor, Scanner scanner) {
-        System.out.println("=== Gestión de Autores ===");
-        // Lógica de ejemplo para listar autores
+        System.out.println("=== Gestion de Autores ===");
+        // logica de ejemplo para listar autores
         List<Autor> autores = gestionAutor.listarAutores();
         for (Autor autor : autores) {
             System.out.println(autor.getId() + ": " + autor.getNombre());
@@ -82,7 +82,7 @@ public class Main {
     }
 
     private static void gestionarUsuarios(GestionUsuario gestionUsuario, Scanner scanner) {
-        System.out.println("=== Gestión de Usuarios ===");
+        System.out.println("Gestion de Usuarios ");
         // Lógica de ejemplo para listar usuarios
         List<Usuario> usuarios = gestionUsuario.listarUsuarios();
         for (Usuario usuario : usuarios) {
@@ -91,11 +91,11 @@ public class Main {
     }
 
     private static void gestionarPrestamos(GestionPrestamo gestionPrestamo, GestionUsuario gestionUsuario, GestionLibro gestionLibro, Scanner scanner) {
-        System.out.println("=== Gestión de Préstamos ===");
-        // Lógica para listar préstamos
+        System.out.println(" Gestion de Prestamos");
+        // logica para listar préstamos
         List<Prestamo> prestamos = gestionPrestamo.listarPrestamos();
         for (Prestamo prestamo : prestamos) {
-            System.out.println("Préstamo ID: " + prestamo.getId() + " - Usuario: " + prestamo.getUsuario().getNombre() + " - Libro: " + prestamo.getLibro().getTitulo());
+            System.out.println("Prestamo ID: " + prestamo.getId() + " - Usuario: " + prestamo.getUsuario().getNombre() + " - Libro: " + prestamo.getLibro().getTitulo());
         }
     }
 }
