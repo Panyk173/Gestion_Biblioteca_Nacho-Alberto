@@ -6,7 +6,7 @@ import java.util.List;
 
 public class LibroDAO {
 
-    // Guardamos la conexión a la base de datos
+    // Guardamos la conexion a la base de datos
     private static Connection connection;
 
     // Constructor que recibe la conexión
