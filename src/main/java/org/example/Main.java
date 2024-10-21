@@ -23,16 +23,16 @@ public class Main {
 
             do {
                 System.out.println("gestion de biblioteca");
-                System.out.println("1. gestionar libros");
-                System.out.println("2. gestionar autores");
-                System.out.println("3. gestionar usuarios");
+                System.out.println("1. gestionar libros ");
+                System.out.println("2. gestionar autores ");
+                System.out.println("3. gestionar usuarios ");
                 System.out.println("4. gestionar prestamos");
-                System.out.println("0. salir");
+                System.out.println("0. salir" );
                 System.out.print("elige una opcion: ");
                 opcion = scanner.nextInt();
                 scanner.nextLine(); // limpiamos el buffer
 
-                switch (opcion) {
+                switch (opcion ) {
                     case 1:
                         gestionLibro.menuGestionLibros(scanner);
                         break;
@@ -47,18 +47,18 @@ public class Main {
                         break;
                     case 0:
                         System.out.println("salir");
-                        break;
-                    default:
+                        break ;
+                    default :
                         System.out.println("opcion no valida.");
                 }
             } while (opcion != 0);
 
             // Cerramos el scanner y sus conexiones
-            scanner.close();
-            connection.close();
+            scanner.close() ;
+            connection.close() ;
 
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (SQLException e ) {
+            e.printStackTrace() ;
         }
     }
 }
