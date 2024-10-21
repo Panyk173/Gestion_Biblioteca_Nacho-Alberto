@@ -17,12 +17,12 @@ public class Main {
             GestionUsuario gestionUsuario = new GestionUsuario(connection);
             GestionPrestamo gestionPrestamo = new GestionPrestamo(connection);
 
-            // Creamos un menú para que el usuario elija una opción
+            // menu para el usuario
             Scanner scanner = new Scanner(System.in);
             int opcion;
 
             do {
-                System.out.println("=== gestion de biblioteca ===");
+                System.out.println("gestion de biblioteca");
                 System.out.println("1. gestionar libros");
                 System.out.println("2. gestionar autores");
                 System.out.println("3. gestionar usuarios");
@@ -53,7 +53,7 @@ public class Main {
                 }
             } while (opcion != 0);
 
-            // Cerramos el scanner y la conexión
+            // Cerramos el scanner y sus conexiones
             scanner.close();
             connection.close();
 
