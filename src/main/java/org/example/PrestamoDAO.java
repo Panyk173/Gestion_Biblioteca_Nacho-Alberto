@@ -6,7 +6,7 @@ import java.util.List;
 public class PrestamoDAO {
     private Connection conexion;
 
-    // Constructor que inicializa el DAO con la conexión
+    // Constructor que inicializa el DAO con la conex
     public PrestamoDAO(Connection conexion) {
         this.conexion = conexion;
     }
