@@ -7,7 +7,7 @@ import java.util.List;
 public class LibroDAO {
 
     // Guardamos la conexión a la base de datos
-    private Connection connection;
+    private static Connection connection;
 
     // Constructor que recibe la conexión
     public LibroDAO(Connection connection) {
@@ -25,7 +25,7 @@ public class LibroDAO {
     }
 
     // Metodo para leer un Libro de la base de datos por su ID
-    public Libro obtenerLibroPorId(int id) throws SQLException {
+    public static Libro obtenerLibroPorId(int id) throws SQLException {
         String sql = "SELECT * FROM Libro WHERE id = ?";
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
             stmt.setInt(1, id); // Le pasamos el ID

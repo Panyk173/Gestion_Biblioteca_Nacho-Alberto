@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UsuarioDAO {
-    private Connection conexion;  // Conexión a la base de datos
+    private static Connection conexion;  // Conexión a la base de datos
 
     // Constructor que inicializa el DAO con la conexión
     public UsuarioDAO(Connection conexion) {
@@ -57,7 +57,7 @@ public class UsuarioDAO {
     }
 
     // coger por id
-    public Usuario obtenerUsuarioPorId(int id) throws SQLException {
+    public static Usuario obtenerUsuarioPorId(int id) throws SQLException {
         String query = "SELECT * FROM usuario WHERE id = ?";
         try (PreparedStatement stmt = conexion.prepareStatement(query)) {
             stmt.setInt(1, id);  // Pasamos el ID como parámetro

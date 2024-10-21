@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PrestamoDAO {
-    private Connection conexion;
+    private static Connection conexion;
 
     // Constructor que inicializa el DAO con la conex
     public PrestamoDAO(Connection conexion) {
@@ -12,7 +12,7 @@ public class PrestamoDAO {
     }
 
     // metodo para registrar prestamos tio
-    public void registrarPrestamo(Prestamo prestamo) throws SQLException {
+    public static void registrarPrestamo(Prestamo prestamo) throws SQLException {
         String query = "INSERT INTO prestamo (fechaInicio, fechaFin, idUsuario, idLibro) VALUES (?, ?, ?, ?)";
         try (PreparedStatement stmt = conexion.prepareStatement(query)) {
             stmt.setDate(1, prestamo.getFechaInicio());
