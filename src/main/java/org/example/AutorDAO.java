@@ -44,9 +44,9 @@ public class AutorDAO {
     public void actualizarAutor(Autor autor) throws SQLException {
         String sql = "UPDATE Autor SET nombre = ? WHERE id = ?";
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
-            stmt.setString(1, autor.getNombre()); // Actualizamos el nombre
-            stmt.setInt(2, autor.getId()); // Usamos el ID para buscar el autor
-            stmt.executeUpdate(); // Ejecutamos la consulta
+            stmt.setString(1, autor.getNombre());
+            stmt.setInt(2, autor.getId());
+            stmt.executeUpdate();
         }
     }
 
@@ -54,8 +54,8 @@ public class AutorDAO {
     public void eliminarAutor(int id) throws SQLException {
         String sql = "DELETE FROM Autor WHERE id = ?";
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
-            stmt.setInt(1, id); // Borramos el autor por su ID
-            stmt.executeUpdate(); // Ejecutamos la consulta
+            stmt.setInt(1, id);
+            stmt.executeUpdate();
         }
     }
 
@@ -72,6 +72,6 @@ public class AutorDAO {
                 ));
             }
         }
-        return autores; // Devolvemos la lista de Autores
+        return autores;
     }
 }

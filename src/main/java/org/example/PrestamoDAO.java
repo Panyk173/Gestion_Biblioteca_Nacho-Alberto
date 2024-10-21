@@ -11,7 +11,7 @@ public class PrestamoDAO {
         this.conexion = conexion;
     }
 
-    // Método para registrar un nuevo préstamo en la base de datos
+    // metodo para registrar prestamos tio
     public void registrarPrestamo(Prestamo prestamo) throws SQLException {
         String query = "INSERT INTO prestamo (fechaInicio, fechaFin, idUsuario, idLibro) VALUES (?, ?, ?, ?)";
         try (PreparedStatement stmt = conexion.prepareStatement(query)) {
@@ -23,7 +23,7 @@ public class PrestamoDAO {
         }
     }
 
-    // Método para obtener un préstamo por su ID
+    //para obtener id
     public Prestamo obtenerPrestamoPorId(int id) throws SQLException {
         String query = "SELECT * FROM prestamo WHERE id = ?";
         try (PreparedStatement stmt = conexion.prepareStatement(query)) {
@@ -35,17 +35,17 @@ public class PrestamoDAO {
                 int idUsuario = rs.getInt("idUsuario");
                 int idLibro = rs.getInt("idLibro");
 
-                // Obtenemos el usuario y el libro desde los DAOs correspondientes
+                //usuario y libro del dao tio
                 Usuario usuario = new UsuarioDAO(conexion).obtenerUsuarioPorId(idUsuario);
                 Libro libro = new LibroDAO(conexion).obtenerLibroPorId(idLibro);
 
                 return new Prestamo(id, fechaInicio, fechaFin, usuario, libro);
             }
         }
-        return null; // Si no encuentra el préstamo, devolvemos null
+        return null; // copiado de otras clases buena idea para devolver el nuñl
     }
 
-    // Método para obtener todos los préstamos de la base de datos
+    // obtener de la base de datos
     public List<Prestamo> listarPrestamos() throws SQLException {
         List<Prestamo> prestamos = new ArrayList<>();
         String query = "SELECT * FROM prestamo";
@@ -67,7 +67,7 @@ public class PrestamoDAO {
         return prestamos;
     }
 
-    // Método para actualizar un préstamo en la base de datos
+    // actualizar prestamos
     public void actualizarPrestamo(Prestamo prestamo) throws SQLException {
         String query = "UPDATE prestamo SET fechaInicio = ?, fechaFin = ?, idUsuario = ?, idLibro = ? WHERE id = ?";
         try (PreparedStatement stmt = conexion.prepareStatement(query)) {
@@ -80,7 +80,7 @@ public class PrestamoDAO {
         }
     }
 
-    // Método para eliminar un préstamo de la base de datos
+    // eliminar prestamos
     public void eliminarPrestamo(int id) throws SQLException {
         String query = "DELETE FROM prestamo WHERE id = ?";
         try (PreparedStatement stmt = conexion.prepareStatement(query)) {

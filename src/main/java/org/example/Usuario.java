@@ -1,7 +1,7 @@
 package org.example;
 public class Usuario {
-        private int id;          // Identificador único del usuario
-        private String nombre;   // Nombre del usuario
+        private int id;
+        private String nombre;
 
         // Constructor básico
         public Usuario(int id, String nombre) {
@@ -26,7 +26,7 @@ public class Usuario {
             this.nombre = nombre;
         }
 
-        // Método para mostrar información del usuario
+        // el clasico to string
         @Override
         public String toString() {
             return "Usuario [ID=" + id + ", Nombre=" + nombre + "]";

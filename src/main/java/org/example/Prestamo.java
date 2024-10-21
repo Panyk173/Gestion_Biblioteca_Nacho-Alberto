@@ -1,13 +1,13 @@
 package org.example;
 import java.sql.Date;
 public class Prestamo {
-        private int id;               // Identificador único del préstamo
-        private Date fechaInicio;     // Fecha en la que empieza el préstamo
-        private Date fechaFin;        // Fecha estimada de devolución
-        private Usuario usuario;      // Usuario que pidió el préstamo
-        private Libro libro;          // Libro que se presta
+        private int id;
+        private Date fechaInicio;
+        private Date fechaFin;
+        private Usuario usuario;
+        private Libro libro;
 
-        // Constructor básico
+        // Constructor clasico
         public Prestamo(int id, Date fechaInicio, Date fechaFin, Usuario usuario, Libro libro) {
             this.id = id;
             this.fechaInicio = fechaInicio;
@@ -57,7 +57,7 @@ public class Prestamo {
             this.libro = libro;
         }
 
-        // Método para mostrar información del préstamo
+        // el tostring clasico
         @Override
         public String toString() {
             return "Prestamo [ID=" + id + ", Fecha de Inicio=" + fechaInicio + ", Fecha de Fin=" + fechaFin +

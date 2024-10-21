@@ -5,67 +5,69 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class GestionPrestamo {
-
-    // DAO de préstamo para realizar las operaciones CRUD
     private PrestamoDAO prestamoDAO;
 
-    // Constructor que recibe la conexión
+    // Constructor que recibe la conexiónnn
     public GestionPrestamo(Connection connection) {
         this.prestamoDAO = new PrestamoDAO(connection);
     }
 
-    // Método para registrar un nuevo préstamo
+    // aqui registramos el prestamo
     public void registrarPrestamo(Prestamo prestamo) {
         try {
-            prestamoDAO.registrarPrestamo(prestamo); // Llamamos al DAO para registrar el préstamo
-            System.out.println("Préstamo registrado con éxito.");
+            //llamamos al dao para registrar
+            prestamoDAO.registrarPrestamo(prestamo);
+            System.out.println(" registrado bien");
         } catch (SQLException e) {
             e.printStackTrace();
-            System.err.println("Error al registrar el préstamo: " + e.getMessage());
+            System.err.println("Error  " + e.getMessage());
         }
     }
 
-    // Método para obtener un préstamo por su ID
+    // por id aqui
     public Prestamo obtenerPrestamoPorId(int id) {
         try {
-            return prestamoDAO.obtenerPrestamoPorId(id); // Obtenemos el préstamo desde el DAO
+            //obtenemos el prestamo desdeee el dao
+            return prestamoDAO.obtenerPrestamoPorId(id);
         } catch (SQLException e) {
             e.printStackTrace();
-            System.err.println("Error al obtener el préstamo: " + e.getMessage());
+            System.err.println("Error al obtener  " + e.getMessage());
             return null;
         }
     }
 
-    // Método para listar todos los préstamos
+    //la arraylist para listar a todos los que nos surgan de prestamos
     public List<Prestamo> listarPrestamos() {
         try {
-            return prestamoDAO.listarPrestamos(); // Llamamos al DAO para obtener todos los préstamos
+            //lo llamo ewn todos igual para redireccionar al dao
+            return prestamoDAO.listarPrestamos();
         } catch (SQLException e) {
             e.printStackTrace();
-            System.err.println("Error al listar los préstamos: " + e.getMessage());
+            System.err.println("Error al listar  " + e.getMessage());
             return null;
         }
     }
 
-    // Método para actualizar un préstamo
+    // aqui actualizamos los prestamos ante cualquier cambio
     public void actualizarPrestamo(Prestamo prestamo) {
         try {
-            prestamoDAO.actualizarPrestamo(prestamo); // Llamamos al DAO para actualizar el préstamo
-            System.out.println("Préstamo actualizado con éxito.");
+            prestamoDAO.actualizarPrestamo(prestamo);
+            System.out.println("actualizado ");
         } catch (SQLException e) {
             e.printStackTrace();
-            System.err.println("Error al actualizar el préstamo: " + e.getMessage());
+            System.err.println("Error  " + e.getMessage());
         }
     }
 
-    // Método para eliminar un préstamo por su ID
+    //aqui eliminamos por id
+
     public void eliminarPrestamo(int id) {
         try {
-            prestamoDAO.eliminarPrestamo(id); // Llamamos al DAO para eliminar el préstamo
-            System.out.println("Préstamo eliminado con éxito.");
+            prestamoDAO.eliminarPrestamo(id);
+            System.out.println("eliminado");
         } catch (SQLException e) {
             e.printStackTrace();
-            System.err.println("Error al eliminar el préstamo: " + e.getMessage());
+            System.err.println("Error" + e.getMessage());
         }
     }
 }

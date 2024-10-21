@@ -18,9 +18,9 @@ public class LibroDAO {
     public void agregarLibro(Libro libro) throws SQLException {
         String sql = "INSERT INTO Libro (titulo, isbn) VALUES (?, ?)";
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
-            stmt.setString(1, libro.getTitulo()); // Añadimos el título
-            stmt.setString(2, libro.getIsbn());   // Añadimos el ISBN
-            stmt.executeUpdate(); // Ejecutamos la consulta
+            stmt.setString(1, libro.getTitulo());
+            stmt.setString(2, libro.getIsbn());
+            stmt.executeUpdate();
         }
     }
 
@@ -46,10 +46,10 @@ public class LibroDAO {
     public void actualizarLibro(Libro libro) throws SQLException {
         String sql = "UPDATE Libro SET titulo = ?, isbn = ? WHERE id = ?";
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
-            stmt.setString(1, libro.getTitulo()); // Actualizamos el título
-            stmt.setString(2, libro.getIsbn());   // Actualizamos el ISBN
-            stmt.setInt(3, libro.getId());        // Usamos el ID para buscar el libro
-            stmt.executeUpdate(); // Ejecutamos la consulta
+            stmt.setString(1, libro.getTitulo());
+            stmt.setString(2, libro.getIsbn());
+            stmt.setInt(3, libro.getId());
+            stmt.executeUpdate();
         }
     }
 
@@ -57,8 +57,8 @@ public class LibroDAO {
     public void eliminarLibro(int id) throws SQLException {
         String sql = "DELETE FROM Libro WHERE id = ?";
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
-            stmt.setInt(1, id); // Borramos el libro por su ID
-            stmt.executeUpdate(); // Ejecutamos la consulta
+            stmt.setInt(1, id);
+            stmt.executeUpdate();
         }
     }
 
@@ -76,6 +76,7 @@ public class LibroDAO {
                 ));
             }
         }
-        return libros; // Devolvemos la lista de Libros
+        //aqui retornamos lista entera
+        return libros;
     }
 }

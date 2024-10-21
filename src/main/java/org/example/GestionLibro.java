@@ -17,26 +17,26 @@ public class GestionLibro {
     // Metodo para agregar un libro
     public void agregarLibro(Libro libro) {
         try {
-            libroDAO.agregarLibro(libro); // Llamamos al DAO para agregar el libro
+            libroDAO.agregarLibro(libro);
         } catch (SQLException e) {
-            e.printStackTrace(); // Mostramos el error en caso de fallo
+            e.printStackTrace();
         }
     }
 
     // Metodo para obtener un libro por su ID
     public Libro obtenerLibroPorId(int id) {
         try {
-            return libroDAO.obtenerLibroPorId(id); // Obtenemos el libro desde el DAO
+            return libroDAO.obtenerLibroPorId(id);
         } catch (SQLException e) {
             e.printStackTrace();
-            return null; // Si hay error, devolvemos null
+            return null;
         }
     }
 
     // Metodo para actualizar un libro
     public void actualizarLibro(Libro libro) {
         try {
-            libroDAO.actualizarLibro(libro); // Actualizamos el libro a través del DAO
+            libroDAO.actualizarLibro(libro);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -45,7 +45,7 @@ public class GestionLibro {
     // Metodo para eliminar un libro por su ID
     public void eliminarLibro(int id) {
         try {
-            libroDAO.eliminarLibro(id); // Llamamos al DAO para eliminar el libro
+            libroDAO.eliminarLibro(id);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -54,7 +54,7 @@ public class GestionLibro {
     // Metodo para listar todos los libros
     public List<Libro> listarLibros() {
         try {
-            return libroDAO.listarLibros(); // Obtenemos la lista de libros desde el DAO
+            return libroDAO.listarLibros();
         } catch (SQLException e) {
             e.printStackTrace();
             return null;

@@ -5,66 +5,66 @@ import java.util.List;
 
     public class GestionUsuario {
 
-        // DAO de usuario para realizar las operaciones CRUD
+        //el dao principal
         private UsuarioDAO usuarioDAO;
 
-        // Constructor que recibe la conexión
+        // aqui recibimos la conexion
         public GestionUsuario(Connection connection) {
             this.usuarioDAO = new UsuarioDAO(connection);
         }
 
-        // Método para agregar un nuevo usuario
+        //aqui agregamos con este metodo a los usuarios
         public void agregarUsuario(Usuario usuario) {
             try {
-                usuarioDAO.crearUsuario(usuario); // Llamamos al DAO para agregar el usuario
-                System.out.println("Usuario agregado con éxito.");
+                usuarioDAO.crearUsuario(usuario);
+                System.out.println("Usuario agregado");
             } catch (SQLException e) {
                 e.printStackTrace();
-                System.err.println("Error al agregar el usuario: " + e.getMessage());
+                System.err.println("Error  " + e.getMessage());
             }
         }
 
-        // Método para obtener un usuario por su ID
+        // aqui tio por id obtenemos
         public Usuario obtenerUsuarioPorId(int id) {
             try {
-                return usuarioDAO.obtenerUsuarioPorId(id); // Obtenemos el usuario desde el DAO
+                return usuarioDAO.obtenerUsuarioPorId(id);
             } catch (SQLException e) {
                 e.printStackTrace();
-                System.err.println("Error al obtener el usuario: " + e.getMessage());
+                System.err.println("Error  " + e.getMessage());
                 return null;
             }
         }
 
-        // Método para listar todos los usuarios
+        // listar usuarios
         public List<Usuario> listarUsuarios() {
             try {
-                return usuarioDAO.leerUsuarios(); // Llamamos al DAO para obtener todos los usuarios
+                return usuarioDAO.leerUsuarios();
             } catch (SQLException e) {
                 e.printStackTrace();
-                System.err.println("Error al listar los usuarios: " + e.getMessage());
+                System.err.println("Error  " + e.getMessage());
                 return null;
             }
         }
 
-        // Método para actualizar un usuario
+        // metodo de actualizar
         public void actualizarUsuario(Usuario usuario) {
             try {
-                usuarioDAO.actualizarUsuario(usuario); // Llamamos al DAO para actualizar el usuario
-                System.out.println("Usuario actualizado con éxito.");
+                usuarioDAO.actualizarUsuario(usuario);
+                System.out.println("Usuario ");
             } catch (SQLException e) {
                 e.printStackTrace();
-                System.err.println("Error al actualizar el usuario: " + e.getMessage());
+                System.err.println("Error " + e.getMessage());
             }
         }
 
-        // Método para eliminar un usuario por su ID
+        // aqui el metodo de eliminar vale?
         public void eliminarUsuario(int id) {
             try {
-                usuarioDAO.eliminarUsuario(id); // Llamamos al DAO para eliminar el usuario
-                System.out.println("Usuario eliminado con éxito.");
+                usuarioDAO.eliminarUsuario(id);
+                System.out.println("Usuario eliminado ");
             } catch (SQLException e) {
                 e.printStackTrace();
-                System.err.println("Error al eliminar el usuario: " + e.getMessage());
+                System.err.println("Error  " + e.getMessage());
             }
         }
     }
