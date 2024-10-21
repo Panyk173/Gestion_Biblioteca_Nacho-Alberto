@@ -17,7 +17,7 @@ public class GestionUsuario {
     public void menuGestionUsuarios(Scanner scanner) {
         int opcion;
         do {
-            System.out.println("=== gestion de usuarios ===");
+            System.out.println("gestion de usuarios");
             System.out.println("1. agregar usuario");
             System.out.println("2. actualizar usuario");
             System.out.println("3. eliminar usuario");
@@ -41,7 +41,7 @@ public class GestionUsuario {
                     listarUsuarios();
                     break;
                 case 0:
-                    System.out.println("volviendo al menu principal...");
+                    System.out.println("menu principal");
                     break;
                 default:
                     System.out.println("opcion no valida.");
@@ -51,24 +51,24 @@ public class GestionUsuario {
 
     // metodo para agregar un usuario
     private void agregarUsuario(Scanner scanner) {
-        System.out.println("=== agregar usuario ===");
-        System.out.print("introduce el nombre del usuario: ");
+        System.out.println("agregar usuario");
+        System.out.print("introduce el nombre  ");
         String nombre = scanner.nextLine();
 
         Usuario usuario = new Usuario(0, nombre);
         try {
             usuarioDAO.crearUsuario(usuario);
-            System.out.println("usuario agregado correctamente.");
+            System.out.println("usuario agregado");
         } catch (SQLException e) {
-            System.out.println("error al agregar el usuario.");
+            System.out.println("error ");
             e.printStackTrace();
         }
     }
 
     // metodo para actualizar un usuario
     private void actualizarUsuario(Scanner scanner) {
-        System.out.println("=== actualizar usuario ===");
-        System.out.print("introduce el id del usuario a actualizar: ");
+        System.out.println("actualizar usuario");
+        System.out.print("introduce el id del usuario: ");
         int id = scanner.nextInt();
         scanner.nextLine(); // limpiamos el buffer
 
@@ -78,7 +78,7 @@ public class GestionUsuario {
         Usuario usuario = new Usuario(id, nombre);
         try {
             usuarioDAO.actualizarUsuario(usuario);
-            System.out.println("usuario actualizado correctamente.");
+            System.out.println("usuario actualizado ");
         } catch (SQLException e) {
             System.out.println("error al actualizar el usuario.");
             e.printStackTrace();
@@ -87,7 +87,7 @@ public class GestionUsuario {
 
     // metodo para eliminar un usuario
     private void eliminarUsuario(Scanner scanner) {
-        System.out.println("=== eliminar usuario ===");
+        System.out.println("eliminar usuario");
         System.out.print("introduce el id del usuario a eliminar: ");
         int id = scanner.nextInt();
         try {
@@ -101,16 +101,15 @@ public class GestionUsuario {
 
     // metodo para listar usuarios
     private void listarUsuarios() {
-        System.out.println("=== listar usuarios ===");
+        System.out.println("listar usuarios");
         try {
             List<Usuario> usuarios = usuarioDAO.leerUsuarios();
             for (Usuario usuario : usuarios) {
                 System.out.println(usuario.getId() + ": " + usuario.getNombre());
             }
         } catch (SQLException e) {
-            System.out.println("error al listar los usuarios.");
+            System.out.println("error al listar ");
             e.printStackTrace();
         }
     }
 }
-
