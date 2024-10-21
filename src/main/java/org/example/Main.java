@@ -64,7 +64,7 @@ public class Main {
 
     //  gestionar cada entidad
     private static void gestionarLibros(GestionLibro gestionLibro, Scanner scanner) {
-        System.out.println("=== Gestion de Libros ===");
+        System.out.println(" Gestion de Libros");
         // Aquí se podría implementar más lógica para el CRUD de libros
         List<Libro> libros = gestionLibro.listarLibros();
         for (Libro libro : libros) {
@@ -73,7 +73,7 @@ public class Main {
     }
 
     private static void gestionarAutores(GestionAutor gestionAutor, Scanner scanner) {
-        System.out.println("=== Gestion de Autores ===");
+        System.out.println("Gestion de Autores+");
         // logica de ejemplo para listar autores
         List<Autor> autores = gestionAutor.listarAutores();
         for (Autor autor : autores) {
