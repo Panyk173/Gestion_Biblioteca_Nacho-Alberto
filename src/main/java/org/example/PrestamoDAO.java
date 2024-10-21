@@ -11,7 +11,7 @@ import java.util.List;
             this.conexion = conexion;
         }
 
-        // Método para crear un nuevo préstamo en la base de datos
+        // Metodo para crear un nuevo préstamo en la base de datos
         public void crearPrestamo(Prestamo prestamo) throws SQLException {
             String query = "INSERT INTO prestamo (fechaInicio, fechaFin, idUsuario, idLibro) VALUES (?, ?, ?, ?)";
             try (PreparedStatement stmt = conexion.prepareStatement(query)) {
@@ -23,7 +23,7 @@ import java.util.List;
             }
         }
 
-        // Método para obtener todos los préstamos de la base de datos
+        // Metodo para obtener todos los préstamos de la base de datos
         public List<Prestamo> leerPrestamos() throws SQLException {
             List<Prestamo> prestamos = new ArrayList<>();
             String query = "SELECT * FROM prestamo";
@@ -36,8 +36,8 @@ import java.util.List;
                     int idUsuario = rs.getInt("idUsuario");
                     int idLibro = rs.getInt("idLibro");
 
-                    Usuario usuario = new UsuarioDAO(conexion).leerUsuario(idUsuario);
-                    Libro libro = new LibroDAO(conexion).leerLibro(idLibro);
+                    Usuario usuario = new UsuarioDAO(conexion).obtenerUsuarioPorId(idUsuario);
+                    Libro libro = new LibroDAO(conexion).obtenerLibroPorId(idLibro);
 
                     prestamos.add(new Prestamo(id, fechaInicio, fechaFin, usuario, libro));  // Añadimos cada préstamo a la lista
                 }
@@ -45,7 +45,7 @@ import java.util.List;
             return prestamos;  // Retornamos la lista de préstamos
         }
 
-        // Método para actualizar un préstamo en la base de datos
+        // Metodo para actualizar un préstamo en la base de datos
         public void actualizarPrestamo(Prestamo prestamo) throws SQLException {
             String query = "UPDATE prestamo SET fechaInicio = ?, fechaFin = ?, idUsuario = ?, idLibro = ? WHERE id = ?";
             try (PreparedStatement stmt = conexion.prepareStatement(query)) {
@@ -58,7 +58,7 @@ import java.util.List;
             }
         }
 
-        // Método para eliminar un préstamo de la base de datos
+        // Metodo para eliminar un préstamo de la base de datos
         public void eliminarPrestamo(int id) throws SQLException {
             String query = "DELETE FROM prestamo WHERE id = ?";
             try (PreparedStatement stmt = conexion.prepareStatement(query)) {
