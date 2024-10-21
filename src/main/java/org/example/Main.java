@@ -34,19 +34,19 @@ public class Main {
 
                 switch (opcion) {
                     case 1:
-                        gestionLibro.menuGestionLibros(scanner);  // llamamos al menu de gestion de libros
+                        gestionLibro.menuGestionLibros(scanner);
                         break;
                     case 2:
-                        gestionAutor.menuGestionAutores(scanner);  // llamamos al menu de gestion de autores
+                        gestionAutor.menuGestionAutores(scanner);
                         break;
                     case 3:
-                        gestionUsuario.menuGestionUsuarios(scanner);  // llamamos al menu de gestion de usuarios
+                        gestionUsuario.menuGestionUsuarios(scanner);
                         break;
                     case 4:
-                        gestionPrestamo.menuGestionPrestamos(scanner);  // llamamos al menu de gestion de prestamos
+                        gestionPrestamo.menuGestionPrestamos(scanner);
                         break;
                     case 0:
-                        System.out.println("saliendo...");
+                        System.out.println("salir");
                         break;
                     default:
                         System.out.println("opcion no valida.");
