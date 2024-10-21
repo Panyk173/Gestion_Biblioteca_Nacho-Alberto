@@ -55,7 +55,7 @@ public class Main {
             } while (opcion != 0);
 
             scanner.close();
-            connection.close(); // Cerramos la conexión al finalizar
+            connection.close(); // Cerramos la conexion al finalizar
 
         } catch (SQLException e) {
             e.printStackTrace();
