@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Scanner;
 
-public class GestionAutor {
+public class GestionAutor{
 
     private AutorDAO autorDAO;
 
@@ -17,25 +17,25 @@ public class GestionAutor {
     public void menuGestionAutores(Scanner scanner) {
         int opcion;
         do {
-            System.out.println("=== gestion de autores ===");
+            System.out.println("gestion de autores ");
             System.out.println("1. agregar autor");
             System.out.println("2. actualizar autor");
             System.out.println("3. eliminar autor");
             System.out.println("4. listar autores");
-            System.out.println("0. volver al menu principal");
+            System.out.println("0. menu principal");
             System.out.print("elige una opcion: ");
             opcion = scanner.nextInt();
             scanner.nextLine(); // limpiamos el buffer
 
             switch (opcion) {
                 case 1:
-                    agregarAutor(scanner);
+                    agregarAutor(scanner );
                     break;
                 case 2:
-                    actualizarAutor(scanner);
+                    actualizarAutor(scanner );
                     break;
                 case 3:
-                    eliminarAutor(scanner);
+                    eliminarAutor(scanner );
                     break;
                 case 4:
                     listarAutores();
@@ -59,9 +59,9 @@ public class GestionAutor {
         try {
             autorDAO.agregarAutor(autor);
             System.out.println("autor agregado");
-        } catch (SQLException e) {
+        } catch (SQLException e ) {
             System.out.println("error al agregar el autor.");
-            e.printStackTrace();
+            e.printStackTrace() ;
         }
     }
 
@@ -69,8 +69,8 @@ public class GestionAutor {
     private void actualizarAutor(Scanner scanner) {
         System.out.println("actualizar autor");
         System.out.print("introduce el id del autor a actualizar: ");
-        int id = scanner.nextInt();
-        scanner.nextLine(); // limpiamos el buffer
+        int id =scanner.nextInt();
+        scanner.nextLine();// limpiamos el buffer
 
         System.out.print("introduce el nuevo nombre: ");
         String nombre = scanner.nextLine();
@@ -93,9 +93,10 @@ public class GestionAutor {
         try {
             autorDAO.eliminarAutor(id);
             System.out.println("autor eliminado ");
-        } catch (SQLException e) {
+        } catch (SQLException    e) {
             System.out.println("error al eliminar ");
-            e.printStackTrace();
+            e.printStackTrace() ;
+
         }
     }
 
@@ -107,9 +108,9 @@ public class GestionAutor {
             for (Autor autor : autores) {
                 System.out.println(autor.getId() + ": " + autor.getNombre());
             }
-        } catch (SQLException e) {
+        } catch (SQLException  e) {
             System.out.println("error al listar");
-            e.printStackTrace();
+            e.printStackTrace() ;
         }
     }
 }
