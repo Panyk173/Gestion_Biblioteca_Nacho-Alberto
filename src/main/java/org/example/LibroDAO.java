@@ -14,7 +14,7 @@ public class LibroDAO {
         this.connection = connection;
     }
 
-    // Metodo para añadir un libro a la base de datos
+    // Metodo para añadir un Libro a la base de datos
     public void agregarLibro(Libro libro) throws SQLException {
         String sql = "INSERT INTO Libro (titulo, isbn) VALUES (?, ?)";
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
@@ -24,7 +24,7 @@ public class LibroDAO {
         }
     }
 
-    // Metodo para leer un libro de la base de datos por su ID
+    // Metodo para leer un Libro de la base de datos por su ID
     public Libro obtenerLibroPorId(int id) throws SQLException {
         String sql = "SELECT * FROM Libro WHERE id = ?";
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
@@ -42,7 +42,7 @@ public class LibroDAO {
         return null; // Si no lo encuentra, devolvemos null
     }
 
-    // Metodo para actualizar un libro
+    // Metodo para actualizar un Libro
     public void actualizarLibro(Libro libro) throws SQLException {
         String sql = "UPDATE Libro SET titulo = ?, isbn = ? WHERE id = ?";
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
@@ -53,7 +53,7 @@ public class LibroDAO {
         }
     }
 
-    // Metodo para eliminar un libro de la base de datos
+    // Metodo para eliminar un Libro de la base de datos
     public void eliminarLibro(int id) throws SQLException {
         String sql = "DELETE FROM Libro WHERE id = ?";
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
@@ -62,7 +62,7 @@ public class LibroDAO {
         }
     }
 
-    // Metodo para listar todos los libros
+    // Metodo para listar todos los Libros
     public List<Libro> listarLibros() throws SQLException {
         List<Libro> libros = new ArrayList<>();
         String sql = "SELECT * FROM Libro";
@@ -76,6 +76,6 @@ public class LibroDAO {
                 ));
             }
         }
-        return libros; // Devolvemos la lista de libros
+        return libros; // Devolvemos la lista de Libros
     }
 }

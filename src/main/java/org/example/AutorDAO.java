@@ -14,7 +14,7 @@ public class AutorDAO {
         this.connection = connection;
     }
 
-    // Mwetodo para añadir un autor a la base de datos
+    // Mwetodo para añadir un Autor a la base de datos
     public void agregarAutor(Autor autor) throws SQLException {
         String sql = "INSERT INTO Autor (nombre) VALUES (?)";
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
@@ -23,7 +23,7 @@ public class AutorDAO {
         }
     }
 
-    // Metodo para leer un autor de la base de datos por su ID
+    // Metodo para leer un Autor de la base de datos por su ID
     public Autor obtenerAutorPorId(int id) throws SQLException {
         String sql = "SELECT * FROM Autor WHERE id = ?";
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
@@ -40,7 +40,7 @@ public class AutorDAO {
         return null; // Si no lo encuentra, devolvemos null
     }
 
-    // Metodo para actualizar un autor
+    // Metodo para actualizar un Autor
     public void actualizarAutor(Autor autor) throws SQLException {
         String sql = "UPDATE Autor SET nombre = ? WHERE id = ?";
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
@@ -50,7 +50,7 @@ public class AutorDAO {
         }
     }
 
-    // Metodo para eliminar un autor de la base de datos
+    // Metodo para eliminar un Autor de la base de datos
     public void eliminarAutor(int id) throws SQLException {
         String sql = "DELETE FROM Autor WHERE id = ?";
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
@@ -59,7 +59,7 @@ public class AutorDAO {
         }
     }
 
-    // Metodo para listar todos los autores
+    // Metodo para listar todos los Autores
     public List<Autor> listarAutores() throws SQLException {
         List<Autor> autores = new ArrayList<>();
         String sql = "SELECT * FROM Autor";
@@ -72,6 +72,6 @@ public class AutorDAO {
                 ));
             }
         }
-        return autores; // Devolvemos la lista de autores
+        return autores; // Devolvemos la lista de Autores
     }
 }

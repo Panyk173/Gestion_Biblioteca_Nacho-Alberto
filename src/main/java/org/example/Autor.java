@@ -5,7 +5,7 @@ import java.util.List;
 public class Autor {
     private int id;
     private String nombre;
-    private List<Libro> libros; // Relación muchos a muchos con Libro
+    private List<Libro> libros; // Relación muchos a muchos con la tabla Libro
 
     // Constructor
     public Autor(int id, String nombre) {

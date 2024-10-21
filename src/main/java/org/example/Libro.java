@@ -6,7 +6,7 @@ public class Libro {
     private int id;
     private String titulo;
     private String isbn;
-    private List<Autor> autores; // Relación muchos a muchos con Autor
+    private List<Autor> autores; // Relación muchos a muchos con la tabla Autor
 
     // Constructor
     public Libro(int id, String titulo, String isbn) {
