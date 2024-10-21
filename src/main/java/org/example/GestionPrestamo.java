@@ -19,12 +19,12 @@ public class GestionPrestamo {
     public void menuGestionPrestamos(Scanner scanner) {
         int opcion;
         do {
-            System.out.println("=== gestion de prestamos ===");
+            System.out.println("gestion de prestamos");
             System.out.println("1. agregar prestamo");
             System.out.println("2. actualizar prestamo");
             System.out.println("3. eliminar prestamo");
             System.out.println("4. listar prestamos");
-            System.out.println("0. volver al menu principal");
+            System.out.println("0. menu principal");
             System.out.print("elige una opcion: ");
             opcion = scanner.nextInt();
             scanner.nextLine(); // limpiamos el buffer
@@ -43,7 +43,7 @@ public class GestionPrestamo {
                     listarPrestamos();
                     break;
                 case 0:
-                    System.out.println("volviendo al menu principal...");
+                    System.out.println("menu iinicial");
                     break;
                 default:
                     System.out.println("opcion no valida.");
@@ -53,16 +53,16 @@ public class GestionPrestamo {
 
     // metodo para agregar un prestamo
     private void agregarPrestamo(Scanner scanner) {
-        System.out.println("=== agregar prestamo ===");
+        System.out.println("agregar prestamo ");
         System.out.print("introduce el id del usuario: ");
         int idUsuario = scanner.nextInt();
         System.out.print("introduce el id del libro: ");
         int idLibro = scanner.nextInt();
         scanner.nextLine(); // limpiamos el buffer
 
-        System.out.print("introduce la fecha de inicio (yyyy-mm-dd): ");
+        System.out.print("introduce la fecha de inicio ");
         String fechaInicio = scanner.nextLine();
-        System.out.print("introduce la fecha de fin (yyyy-mm-dd): ");
+        System.out.print("introduce la fecha de fin ");
         String fechaFin = scanner.nextLine();
 
         try {
@@ -70,23 +70,23 @@ public class GestionPrestamo {
             Libro libro = LibroDAO.obtenerLibroPorId(idLibro);
             Prestamo prestamo = new Prestamo(0, java.sql.Date.valueOf(fechaInicio), java.sql.Date.valueOf(fechaFin), usuario, libro);
             PrestamoDAO.registrarPrestamo(prestamo);
-            System.out.println("prestamo agregado correctamente.");
+            System.out.println("prestamo agregado");
         } catch (SQLException e) {
-            System.out.println("error al agregar el prestamo.");
+            System.out.println("error al agregar ");
             e.printStackTrace();
         }
     }
 
-    // metodo para actualizar un prestamo
+    // actualizar un prestamo
     private void actualizarPrestamo(Scanner scanner) {
-        System.out.println("=== actualizar prestamo ===");
-        System.out.print("introduce el id del prestamo a actualizar: ");
+        System.out.println("actualizar prestamo");
+        System.out.print("introduce el id del prestamo");
         int id = scanner.nextInt();
         scanner.nextLine(); // limpiamos el buffer
 
-        System.out.print("introduce la nueva fecha de inicio (yyyy-mm-dd): ");
+        System.out.print("introduce la nueva fecha de inicio");
         String fechaInicio = scanner.nextLine();
-        System.out.print("introduce la nueva fecha de fin (yyyy-mm-dd): ");
+        System.out.print("introduce la nueva fecha de fin ");
         String fechaFin = scanner.nextLine();
 
         try {
@@ -94,37 +94,37 @@ public class GestionPrestamo {
             prestamo.setFechaInicio(java.sql.Date.valueOf(fechaInicio));
             prestamo.setFechaFin(java.sql.Date.valueOf(fechaFin));
             prestamoDAO.actualizarPrestamo(prestamo);
-            System.out.println("prestamo actualizado correctamente.");
+            System.out.println("prestamo actualizado ");
         } catch (SQLException e) {
-            System.out.println("error al actualizar el prestamo.");
+            System.out.println("error al actualizar ");
             e.printStackTrace();
         }
     }
 
-    // metodo para eliminar un prestamo
+    // eliminar un prestamo
     private void eliminarPrestamo(Scanner scanner) {
-        System.out.println("=== eliminar prestamo ===");
+        System.out.println("eliminar prestamo ");
         System.out.print("introduce el id del prestamo a eliminar: ");
         int id = scanner.nextInt();
         try {
             prestamoDAO.eliminarPrestamo(id);
-            System.out.println("prestamo eliminado correctamente.");
+            System.out.println("prestamo eliminado ");
         } catch (SQLException e) {
-            System.out.println("error al eliminar el prestamo.");
+            System.out.println("error al eliminar ");
             e.printStackTrace();
         }
     }
 
-    // metodo para listar prestamos
+    // listar prestamos
     private void listarPrestamos() {
-        System.out.println("=== listar prestamos ===");
+        System.out.println("listar prestamos ");
         try {
             List<Prestamo> prestamos = prestamoDAO.listarPrestamos();
             for (Prestamo prestamo : prestamos) {
                 System.out.println("id: " + prestamo.getId() + ", usuario: " + prestamo.getUsuario().getNombre() + ", libro: " + prestamo.getLibro().getTitulo());
             }
         } catch (SQLException e) {
-            System.out.println("error al listar los prestamos.");
+            System.out.println("error al listar");
             e.printStackTrace();
         }
     }

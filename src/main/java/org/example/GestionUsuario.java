@@ -65,7 +65,7 @@ public class GestionUsuario {
         }
     }
 
-    // metodo para actualizar un usuario
+    // actualizar un usuario
     private void actualizarUsuario(Scanner scanner) {
         System.out.println("actualizar usuario");
         System.out.print("introduce el id del usuario: ");
@@ -80,12 +80,12 @@ public class GestionUsuario {
             usuarioDAO.actualizarUsuario(usuario);
             System.out.println("usuario actualizado ");
         } catch (SQLException e) {
-            System.out.println("error al actualizar el usuario.");
+            System.out.println("error ");
             e.printStackTrace();
         }
     }
 
-    // metodo para eliminar un usuario
+    //  eliminar un usuario
     private void eliminarUsuario(Scanner scanner) {
         System.out.println("eliminar usuario");
         System.out.print("introduce el id del usuario a eliminar: ");
@@ -94,12 +94,12 @@ public class GestionUsuario {
             usuarioDAO.eliminarUsuario(id);
             System.out.println("usuario eliminado correctamente.");
         } catch (SQLException e) {
-            System.out.println("error al eliminar el usuario.");
+            System.out.println("error ");
             e.printStackTrace();
         }
     }
 
-    // metodo para listar usuarios
+    //  listar usuarios
     private void listarUsuarios() {
         System.out.println("listar usuarios");
         try {
