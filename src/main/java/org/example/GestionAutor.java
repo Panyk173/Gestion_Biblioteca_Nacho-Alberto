@@ -7,7 +7,7 @@ import java.util.List;
 public class GestionAutor {
 
     // DAO de autor para realizar las operaciones CRUD
-    private AutorDAO autorDAO;
+    private    AutorDAO autorDAO;
 
     // Constructor que recibe la conexión
     public GestionAutor(Connection connection) {
@@ -16,9 +16,12 @@ public class GestionAutor {
 
     // Metodo para agregar un autor
     public void agregarAutor(Autor autor) {
+
         try {
             autorDAO.agregarAutor(autor);
         } catch (SQLException e) {
+
+
             e.printStackTrace();
         }
     }
