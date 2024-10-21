@@ -12,13 +12,13 @@ public class Main {
             // Establecemos la conexión a la base de datos
             Connection connection = DBConnection.getConnection();
 
-            // Inicializamos las clases de gestión
+            // Inicializamos las clases de gestion
             GestionLibro gestionLibro = new GestionLibro(connection);
             GestionAutor gestionAutor = new GestionAutor(connection);
             GestionUsuario gestionUsuario = new GestionUsuario(connection);
             GestionPrestamo gestionPrestamo = new GestionPrestamo(connection);
 
-            // Creamos un menú
+            // Creamos un menuu
             Scanner scanner = new Scanner(System.in);
             int opcion;
 
