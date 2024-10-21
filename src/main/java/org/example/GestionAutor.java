@@ -29,16 +29,16 @@ public class GestionAutor{
 
             switch (opcion) {
                 case 1:
-                    agregarAutor(scanner );
+                    agregarAutor(scanner);
                     break;
                 case 2:
-                    actualizarAutor(scanner );
+                    actualizarAutor(scanner);
                     break;
                 case 3:
-                    eliminarAutor(scanner );
+                    eliminarAutor(scanner);
                     break;
                 case 4:
-                    listarAutores();
+                    listarAutores() ;
                     break;
                 case 0:
                     System.out.println("menu principa");
@@ -53,15 +53,16 @@ public class GestionAutor{
     private void agregarAutor(Scanner scanner) {
         System.out.println("agregar autor");
         System.out.print("introduce el nombre del autor: ");
-        String nombre = scanner.nextLine();
+        String nombre = scanner.nextLine() ;
+
 
         Autor autor = new Autor(0, nombre);
         try {
             autorDAO.agregarAutor(autor);
             System.out.println("autor agregado");
         } catch (SQLException e ) {
-            System.out.println("error al agregar el autor.");
-            e.printStackTrace() ;
+            System.out.println("error al agregar el autor.") ;
+            e.printStackTrace();
         }
     }
 
@@ -70,10 +71,10 @@ public class GestionAutor{
         System.out.println("actualizar autor");
         System.out.print("introduce el id del autor a actualizar: ");
         int id =scanner.nextInt();
-        scanner.nextLine();// limpiamos el buffer
+        scanner.nextLine(); // limpiamos el buffer
 
         System.out.print("introduce el nuevo nombre: ");
-        String nombre = scanner.nextLine();
+        String nombre = scanner.nextLine() ;
 
         Autor autor = new Autor(id, nombre);
         try {
@@ -81,21 +82,21 @@ public class GestionAutor{
             System.out.println("autor actualizado ");
         } catch (SQLException e) {
             System.out.println("error al actualizar ");
-            e.printStackTrace();
+            e.printStackTrace() ;
         }
     }
 
     // metodo para eliminar un autor
     private void eliminarAutor(Scanner scanner) {
         System.out.println("eliminar auto");
-        System.out.print("introduce el id del autor a eliminar: ");
-        int id = scanner.nextInt();
+        System.out.print("introduce el id del autor a eliminar:");
+        int id = scanner.nextInt() ;
         try {
             autorDAO.eliminarAutor(id);
             System.out.println("autor eliminado ");
         } catch (SQLException    e) {
             System.out.println("error al eliminar ");
-            e.printStackTrace() ;
+            e.printStackTrace();
 
         }
     }
@@ -104,13 +105,13 @@ public class GestionAutor{
     private void listarAutores() {
         System.out.println(" listar autores ");
         try {
-            List<Autor> autores = autorDAO.listarAutores();
+            List<Autor> autores = autorDAO.listarAutores() ;
             for (Autor autor : autores) {
                 System.out.println(autor.getId() + ": " + autor.getNombre());
             }
-        } catch (SQLException  e) {
+        } catch (SQLException e) {
             System.out.println("error al listar");
-            e.printStackTrace() ;
+            e.printStackTrace();
         }
     }
 }
